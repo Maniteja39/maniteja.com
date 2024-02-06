@@ -1,30 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mani Teja's Personal Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-        <p>This is a brief introduction about myself and my work as a software developer.</p>
-    </header>
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>I'm a software developer with a passion for technology and innovation. I enjoy building software that improves lives and solves real-world problems.</p>
-        </section>
-        <section>
-            <h2>Projects</h2>
-            <p>Here, I would showcase some of my projects.</p>
-        </section>
-    </main>
-    <footer>
-        <p>Contact me at: <a href="mailto:email@domain.com">email@domain.com</a></p>
-    </footer>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'About')">About Me</button>
+        <button class="tablinks" onclick="openTab(event, 'Projects')">Projects</button>
+        <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+    </div>
+
+    <div id="About" class="tabcontent">
+        <h3>About Me</h3>
+        <p>I'm a software developer with a passion for technology and innovation. I enjoy building software that improves lives and solves real-world problems.</p>
+    </div>
+
+    <div id="Projects" class="tabcontent">
+        <h3>Projects</h3>
+        <p>Here, I would showcase some of my projects.</p>
+    </div>
+
+    <div id="Contact" class="tabcontent">
+        <h3>Contact</h3>
+        <p>Contact me at: email@domain.com</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
