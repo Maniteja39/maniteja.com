@@ -35,6 +35,39 @@
     border-top: none;
 }
 
+/* Style the header image */
+.hero-image {
+  background-image: url('assets/IMG_4946.jpg'); /* Add your image link here */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 75vh; /* Adjust the height as you like */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Style the header text */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 50px; /* Adjust the size as needed */
+  margin-bottom: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 30px; /* Smaller font size on smaller screens */
+    }
+}
+
 /* Green color theme */
 body {
     background-color: #e8f5e9; /* Light green background */
