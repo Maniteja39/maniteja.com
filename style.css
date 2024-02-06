@@ -37,7 +37,7 @@
 
 /* Style the header image */
 .hero-image {
-  background-image: url('assets/IMG_4946.JPG'); /* Add your image link here */
+  background-image: url('assets/IMG_4946.jpg'); /* Add your image link here */
   background-color: #cccccc; /* Used if the image is unavailable */
   height: 75vh; /* Adjust the height as you like */
   background-position: center;
