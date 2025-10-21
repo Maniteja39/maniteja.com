@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  maniteja-api:
+    build: .
+    image: maniteja-api:latest
+    environment:
+      CLOUDFLARE_API_TOKEN: "<insert-token>"
+      CLOUDFLARE_ACCOUNT_ID: "<insert-account>"
+      CLOUDFLARE_MODEL: "text-generator-1"
+    ports:
+      - "8080:8080"
