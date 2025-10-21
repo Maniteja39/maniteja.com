@@ -1,0 +1,30 @@
+<section class="container projects" appRevealOnScroll>
+  <header class="projects__header">
+    <h1 class="section-title">Projects</h1>
+    <p class="section-subtitle">
+      Cloud-native and AI projects delivering measurable reliability, intelligence, and sustainability outcomes.
+    </p>
+  </header>
+  <div class="grid grid--responsive">
+    <article *ngFor="let project of projects" class="card projects__card" tabindex="0">
+      <div class="projects__heading">
+        <h2>{{ project.name }}</h2>
+        <div class="projects__tech">
+          <span *ngFor="let tech of project.technologies" class="badge">{{ tech }}</span>
+        </div>
+      </div>
+      <p>{{ project.description }}</p>
+      <ul>
+        <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
+      </ul>
+      <a
+        *ngFor="let link of project.links ?? []"
+        [href]="link.url"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--ghost"
+        >{{ link.label }}</a
+      >
+    </article>
+  </div>
+</section>

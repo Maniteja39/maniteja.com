@@ -1,0 +1,41 @@
+<section class="hero container--wide" appRevealOnScroll>
+  <div class="hero__content">
+    <p class="badge">Cloud · LLMs · Platform Reliability</p>
+    <h1 class="hero-title">Designing resilient cloud and AI systems across AWS &amp; GCP.</h1>
+    <p class="section-subtitle">
+      I help teams launch dependable platforms that blend cloud-native foundations with responsible AI. From satellite
+      observability to LLM guardrails, I partner across the stack to deliver measurable impact.
+    </p>
+    <div class="hero-actions">
+      <a routerLink="/projects" class="btn btn--primary">View Projects</a>
+      <a routerLink="/llm-playground" class="btn btn--ghost">Try the LLM Playground</a>
+    </div>
+    <div class="hero__skills" aria-label="Highlighted skills">
+      <span *ngFor="let skill of skills" class="badge">{{ skill }}</span>
+    </div>
+  </div>
+  <div class="hero__visual" aria-hidden="true">
+    <ng-lottie [options]="heroAnimation"></ng-lottie>
+    <img ngSrc="/assets/images/cloud-architect.webp" width="480" height="480" alt="Cloud architecture illustration" />
+  </div>
+</section>
+
+<section class="container spotlight" appRevealOnScroll>
+  <h2 class="section-title">Spotlight Projects</h2>
+  <p class="section-subtitle">Recent work blending AI co-pilots, data platforms, and cloud automation.</p>
+  <div class="grid grid--responsive">
+    <article *ngFor="let project of spotlightProjects" class="card spotlight__card" tabindex="0">
+      <h3>{{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+      <ul>
+        <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
+      </ul>
+      <div class="spotlight__tags">
+        <span *ngFor="let tech of project.technologies" class="badge">{{ tech }}</span>
+      </div>
+      <a *ngFor="let link of project.links ?? []" [href]="link.url" rel="noopener" target="_blank" class="btn btn--ghost">
+        {{ link.label }}
+      </a>
+    </article>
+  </div>
+</section>

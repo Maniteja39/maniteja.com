@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": false,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": ["ES2022", "DOM"],
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@assets/*": ["src/assets/*"],
+      "@environments/*": ["src/environments/*"],
+      "@shared/*": ["src/app/shared/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

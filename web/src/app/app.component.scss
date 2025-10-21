@@ -1,0 +1,126 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-background);
+  color: var(--text-primary);
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.app-shell__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) clamp(var(--space-md), 4vw, var(--space-xl));
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: color-mix(in srgb, var(--surface-elevated) 85%, transparent);
+}
+
+.app-shell__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+}
+
+.brand-link {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.brand-lottie {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--brand-primary) 40%, transparent));
+}
+
+.theme-toggle {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+}
+
+.app-shell__nav {
+  justify-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.app-shell__nav-link {
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.app-shell__nav-link:hover,
+.app-shell__nav-link:focus-visible,
+.app-shell__nav-link.active {
+  background: color-mix(in srgb, var(--brand-primary) 16%, transparent);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.app-shell__content {
+  flex: 1;
+  padding: clamp(var(--space-lg), 6vw, var(--space-3xl)) clamp(var(--space-md), 5vw, var(--space-4xl));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+.app-shell__footer {
+  padding: var(--space-lg);
+  text-align: center;
+  background: color-mix(in srgb, var(--surface-elevated) 80%, transparent);
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 960px) {
+  .app-shell__header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .app-shell__nav {
+    justify-content: center;
+  }
+
+  .theme-toggle {
+    order: 3;
+  }
+}

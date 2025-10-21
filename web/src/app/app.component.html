@@ -1,0 +1,32 @@
+<div class="app-shell" [@routeTransition]="prepareRoute()">
+  <header class="app-shell__header" role="banner">
+    <div class="app-shell__brand" aria-label="Maniteja brand">
+      <a routerLink="/home" class="brand-link">Maniteja</a>
+      <ng-lottie [options]="animationOptions" class="brand-lottie" aria-hidden="true"></ng-lottie>
+    </div>
+    <button type="button" class="theme-toggle" (click)="themeService.toggle()" aria-label="Toggle color theme">
+      <span class="theme-toggle__icon" aria-hidden="true"></span>
+      <span class="theme-toggle__text">{{ themeService.active === 'dark' ? 'Dark' : 'Light' }} mode</span>
+    </button>
+    <nav class="app-shell__nav" role="navigation" aria-label="Primary">
+      <a
+        *ngFor="let item of navigation"
+        routerLinkActive="active"
+        #rla="routerLinkActive"
+        [routerLink]="item.path"
+        [attr.aria-label]="item.label"
+        [attr.aria-current]="rla.isActive ? 'page' : null"
+        class="app-shell__nav-link"
+        >{{ item.label }}</a
+      >
+    </nav>
+  </header>
+
+  <main class="app-shell__content" role="main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="app-shell__footer" role="contentinfo">
+    <p>© {{ year }} Maniteja · Cloud &amp; AI Engineering</p>
+  </footer>
+</div>
