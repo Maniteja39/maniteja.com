@@ -1,0 +1,19 @@
+# Angular default
+/dist
+/tmp
+/out-tsc
+/node_modules
+/.angular/cache
+/.vscode
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment
+.env
+.env.*

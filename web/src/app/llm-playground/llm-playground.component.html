@@ -1,0 +1,70 @@
+<section class="container llm" appRevealOnScroll>
+  <header>
+    <h1 class="section-title">LLM Playground</h1>
+    <p class="section-subtitle">
+      Experiment with prompts across providers. Requests are proxied through secure backend endpoints with guardrails.
+    </p>
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="card llm__form" aria-label="LLM prompt form">
+    <label for="prompt">Prompt</label>
+    <textarea
+      id="prompt"
+      formControlName="prompt"
+      rows="5"
+      placeholder="Describe the satellite outage in plain English..."
+      [attr.aria-invalid]="form.get('prompt')?.invalid"
+      [attr.aria-describedby]="form.get('prompt')?.invalid ? 'prompt-error' : null"
+    ></textarea>
+    <p *ngIf="form.get('prompt')?.invalid && form.get('prompt')?.touched" id="prompt-error" class="llm__error">
+      Prompts must be at least 10 characters.
+    </p>
+
+    <div class="llm__grid">
+      <label for="model">Model</label>
+      <select id="model" formControlName="model">
+        <option *ngFor="let model of models" [value]="model.id">{{ model.label }}</option>
+      </select>
+
+      <label for="temperature">Creativity ({{ form.get('temperature')?.value ?? 0 | number: '1.1-1' }})</label>
+      <input
+        id="temperature"
+        type="range"
+        min="0"
+        max="1"
+        step="0.1"
+        formControlName="temperature"
+      />
+    </div>
+
+    <button type="submit" class="btn btn--primary" [disabled]="loading()">
+      <span *ngIf="!loading(); else loadingTpl">Send prompt</span>
+    </button>
+    <ng-template #loadingTpl>
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Sending...</span>
+    </ng-template>
+
+    <p *ngIf="error()" class="llm__error" role="alert">{{ error() }}</p>
+  </form>
+
+  <section class="llm__results" *ngIf="results().length > 0" aria-live="polite">
+    <h2 class="section-title">Recent Runs</h2>
+    <article *ngFor="let result of results()" class="card llm__result" tabindex="0">
+      <header>
+        <div class="badge">{{ result.model }}</div>
+        <time [attr.datetime]="result.timestamp.toISOString()">{{ result.timestamp | date: 'shortTime' }}</time>
+      </header>
+      <h3>Prompt</h3>
+      <p>{{ result.prompt }}</p>
+      <h3>Response</h3>
+      <p>{{ result.output }}</p>
+      <div *ngIf="result.warnings?.length" class="llm__warning" role="note">
+        <h4>Warnings</h4>
+        <ul>
+          <li *ngFor="let warning of result.warnings">{{ warning }}</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+</section>

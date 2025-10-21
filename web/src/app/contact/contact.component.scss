@@ -1,0 +1,33 @@
+.contact {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.contact__form {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.contact__form input,
+.contact__form textarea {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-sm);
+  background: var(--surface-card);
+  color: var(--text-primary);
+}
+
+.contact__error {
+  color: #ff6f61;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+}
+
+.contact__status {
+  font-weight: 600;
+  color: #ff6f61;
+}
+
+.contact__status.success {
+  color: #21a776;
+}

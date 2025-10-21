@@ -1,0 +1,50 @@
+<section class="container contact" appRevealOnScroll>
+  <header>
+    <h1 class="section-title">Let's Collaborate</h1>
+    <p class="section-subtitle">
+      Ready to accelerate your cloud, platform, or LLM roadmap? Share a bit about your project and I'll respond promptly.
+    </p>
+  </header>
+
+  <form class="card contact__form" [formGroup]="form" (ngSubmit)="submit()" aria-label="Contact form">
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" required [attr.aria-invalid]="form.get('name')?.invalid" />
+    <p *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="contact__error">Name is required.</p>
+
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      required
+      [attr.aria-invalid]="form.get('email')?.invalid"
+    />
+    <p *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="contact__error">
+      Please provide a valid email.
+    </p>
+
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      formControlName="message"
+      rows="6"
+      required
+      [attr.aria-invalid]="form.get('message')?.invalid"
+    ></textarea>
+    <p *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="contact__error">
+      Please share at least 20 characters.
+    </p>
+
+    <button type="submit" class="btn btn--primary" [disabled]="loading()">
+      <span *ngIf="!loading(); else sending">Send Message</span>
+    </button>
+    <ng-template #sending>
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Sending...</span>
+    </ng-template>
+
+    <p *ngIf="status() !== 'idle'" class="contact__status" [class.success]="status() === 'success'">
+      {{ statusMessage() }}
+    </p>
+  </form>
+</section>

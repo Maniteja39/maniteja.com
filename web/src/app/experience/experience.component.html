@@ -1,0 +1,24 @@
+<section class="container experience" appRevealOnScroll>
+  <header class="experience__header">
+    <h1 class="section-title">Experience</h1>
+    <p class="section-subtitle">
+      Building reliable cloud and AI platforms from enterprise satellites to data-driven supply chains.
+    </p>
+  </header>
+  <div class="experience__timeline">
+    <article *ngFor="let item of experiences" class="card experience__card" tabindex="0">
+      <div class="experience__heading">
+        <h2>{{ item.role }}</h2>
+        <span class="badge">{{ item.timeline }}</span>
+      </div>
+      <h3 class="experience__company">{{ item.company }}</h3>
+      <p>{{ item.summary }}</p>
+      <ul class="experience__list">
+        <li *ngFor="let achievement of item.achievements">{{ achievement }}</li>
+      </ul>
+      <div class="experience__skills" aria-label="Key skills">
+        <span *ngFor="let skill of item.skills" class="badge">{{ skill }}</span>
+      </div>
+    </article>
+  </div>
+</section>

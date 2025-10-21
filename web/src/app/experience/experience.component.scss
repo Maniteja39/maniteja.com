@@ -1,0 +1,56 @@
+.experience {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.experience__timeline {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.experience__card {
+  position: relative;
+  padding-inline: clamp(var(--space-lg), 3vw, var(--space-2xl));
+}
+
+.experience__card::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--space-lg);
+  left: 16px;
+  width: 2px;
+  background: linear-gradient(var(--brand-primary), transparent);
+  opacity: 0.3;
+}
+
+.experience__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.experience__company {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.experience__list {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: grid;
+  gap: var(--space-3xs);
+}
+
+.experience__skills {
+  margin-top: var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+}
+
+@media (max-width: 720px) {
+  .experience__card::before {
+    display: none;
+  }
+}
