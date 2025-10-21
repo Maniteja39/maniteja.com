@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: maniteja-api
+
+portfolio:
+  projects:
+    - name: Personal Website
+      description: Static site hosted on Cloudflare Pages with custom design.
+      technologies:
+        - HTML
+        - CSS
+        - JavaScript
+      url: https://maniteja.com
+    - name: Cloudflare Workers Playground
+      description: Experiments with serverless AI integrations.
+      technologies:
+        - Cloudflare Workers
+        - AI Gateway
+        - Java
+      url: https://github.com/maniteja
+  skills:
+    - Java
+    - Spring Boot
+    - Cloudflare
+    - Oracle Cloud Infrastructure
+
+cloudflare:
+  ai:
+    account-id: ${CLOUDFLARE_ACCOUNT_ID:}
+    model: ${CLOUDFLARE_MODEL:text-generator-1}
+    api-token: ${CLOUDFLARE_API_TOKEN:}
+    base-url: ${CLOUDFLARE_API_BASE:https://api.cloudflare.com}
+
+logging:
+  level:
+    com.maniteja.api.contact: INFO
+    com.maniteja.api.playground: INFO
+
+server:
+  port: ${PORT:8080}
